@@ -11,7 +11,8 @@ const Register = () => {
   const navigate=useNavigate();
   const [socket,setSocket]= useState();
   useEffect(()=>{
-     const socketserver= io.connect('https://worddocument-api.onrender.com');
+        // const socketserver = io("http://localhost:5000");
+         const socketserver= io.connect('https://worddocument-api.onrender.com');
      setSocket(socketserver);
      return ()=>{
         socketserver.disconnect();

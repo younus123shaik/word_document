@@ -23,7 +23,7 @@ const toolbarOptions = [
     [{ 'color': [] }, { 'background': [] }],          
     [{ 'font': [] }],
     [{ 'align': [] }],
-    ['link'],
+    ['link','image'],
     ['clean']                                       
   ];
 const TextEditor = () => {
@@ -38,6 +38,7 @@ const TextEditor = () => {
       setQuill(quillserver);
     },[]);
     useEffect(()=>{
+        // const socketserver = io("http://localhost:5000");
         const socketserver = io.connect('https://worddocument-api.onrender.com');
         setSocket(socketserver)
         return()=>{
@@ -71,7 +72,7 @@ const TextEditor = () => {
 
         socket && socket.once('load-document', document => {
           
-          quill.setText(document);
+          quill.setContents(document);
           quill.enable();
         })
 

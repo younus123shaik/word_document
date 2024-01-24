@@ -10,6 +10,7 @@ const Home = () => {
     const [doc, setDoc] = useState();
     const nav = useNavigate()
     useEffect(() => {
+        // const socketserver = io("http://localhost:5000");
         const socketserver = io("https://worddocument-api.onrender.com");
         setSocket(socketserver);
         return () => {
