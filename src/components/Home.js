@@ -6,6 +6,7 @@ import { Container } from '@mui/material';
 const Home = () => {
     const [socket, setSocket] = useState();
     const { name } = useParams()
+    const [rel,setRel]=useState(name)
     const [doc, setDoc] = useState();
     const nav = useNavigate()
     useEffect(() => {
@@ -27,14 +28,15 @@ const Home = () => {
             socket && socket.off('get_doc', handlefun)
         }
 
-    }, [socket])
+    }, [socket,rel])
     const handleClick = (i) => {
         nav(`/files/${name}/${i.docId}`)
+        setRel(name)
     }
     const handleDelete=(id)=>{
         console.log(id)
         socket && socket.emit('del-doc',id);
-        nav(`/home/${name}`)
+        setRel(id)
 
     }
     return (
