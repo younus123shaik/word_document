@@ -13,7 +13,7 @@ const Login = () => {
   const [socket,setSocket]=useState();
   const navigate = useNavigate();
   useEffect(()=>{
-    const socketserver= io.connect('http://localhost:5000');
+    const socketserver= io.connect('https://worddocument-api.onrender.com');
     setSocket(socketserver);
     return ()=>{
        socketserver.disconnect();

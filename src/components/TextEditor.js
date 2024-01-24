@@ -38,7 +38,7 @@ const TextEditor = () => {
       setQuill(quillserver);
     },[]);
     useEffect(()=>{
-        const socketserver = io.connect('http://localhost:5000');
+        const socketserver = io.connect('https://worddocument-api.onrender.com');
         setSocket(socketserver)
         return()=>{
             socketserver.disconnect();
