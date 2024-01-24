@@ -34,7 +34,7 @@ const Home = () => {
     const handleDelete=(id)=>{
         console.log(id)
         socket && socket.emit('del-doc',id);
-        window.location.reload();
+        nav(`/home/${name}`)
 
     }
     return (
